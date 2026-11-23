@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "PostalGlobal",
+  "short_name": "PostalGlobal",
+  "author": "Caio Vinícius",
+  "version": "1.4.3",
+  "description": "Ferramenta para localizar diversos endereços pelo mundo.",
+  "permissions": ["clipboardWrite"],
+  "host_permissions": [
+    "https://viacep.com.br/*",
+    "https://codigopostal.paraguay.gov.py/*",
+    "https://api.zippopotam.us/*"
+  ],
+  "action": {
+    "default_title": "PostalGlobal",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon-16.png",
+      "32": "assets/icon-32.png",
+      "48": "assets/icon-48.png",
+      "128": "assets/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon-16.png",
+    "32": "assets/icon-32.png",
+    "48": "assets/icon-48.png",
+    "128": "assets/icon-128.png"
+  }
+}

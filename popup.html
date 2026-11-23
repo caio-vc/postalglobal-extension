@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>PostalGlobal</title>
+    <link rel="stylesheet" href="styles/popup.css" />
+    <script type="module" src="src/popup.js"></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <a class="brand" href="popup.html" aria-label="PostalGlobal, início">
+        <img class="brand-mark" src="assets/brand/postalglobal.svg" width="32" height="32" alt="" />
+        <span class="brand-copy">
+          <span class="brand-name">PostalGlobal</span>
+          <span class="brand-tagline"
+            >Ferramenta para localizar diversos endereços pelo mundo.</span
+          >
+        </span>
+      </a>
+
+      <button
+        class="country-trigger"
+        id="country-trigger"
+        type="button"
+        aria-haspopup="dialog"
+        aria-controls="country-dialog"
+        aria-expanded="false"
+        title="Alterar país"
+      >
+        <img id="country-flag" src="assets/flags/BR.svg" width="24" height="17" alt="" />
+        <span id="country-name">Brasil</span>
+        <span class="calling-code" id="country-calling-code">+55</span>
+        <svg class="chevron" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="m4 6 4 4 4-4" />
+        </svg>
+      </button>
+    </header>
+
+    <main>
+      <section class="search-section" aria-labelledby="search-title">
+        <form id="search-form" novalidate>
+          <h1 id="search-title">
+            <label for="postal-code" id="postal-label">Código postal / CEP</label>
+          </h1>
+          <div class="search-input">
+            <input
+              id="postal-code"
+              type="text"
+              placeholder="01001-000"
+              inputmode="numeric"
+              autocomplete="off"
+              spellcheck="false"
+              aria-describedby="input-hint"
+              autofocus
+            />
+            <button class="search-button" id="search-button" type="submit" aria-label="Buscar">
+              <span class="search-label">Buscar</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+          <p class="input-hint" id="input-hint" role="status" aria-live="polite" aria-atomic="true">
+            CEP de até 8 dígitos.
+          </p>
+        </form>
+      </section>
+
+      <section class="result" id="result" aria-labelledby="result-title" hidden>
+        <div class="result-header">
+          <h2 id="result-title">Endereço encontrado</h2>
+          <span class="result-scope" id="result-badge" hidden>Comuna aproximada</span>
+        </div>
+
+        <div class="result-body" tabindex="0" role="region" aria-label="Dados do endereço">
+          <div class="place-picker" id="place-picker" hidden>
+            <label for="place-select" id="place-label">Selecione a localidade</label>
+            <select id="place-select"></select>
+          </div>
+
+          <dl class="address-fields" id="address-fields"></dl>
+          <p class="result-note" id="result-note"></p>
+        </div>
+
+        <div class="result-actions">
+          <button class="copy-all" id="copy-all" type="button">Copiar endereço completo</button>
+          <p
+            class="copy-feedback copy-all-feedback"
+            id="copy-all-feedback"
+            role="status"
+            aria-atomic="true"
+          ></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="brand-credit">Desenvolvido por Caio Vinícius</footer>
+
+    <dialog id="country-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-heading">
+        <h2 id="dialog-title">País do endereço</h2>
+        <button
+          class="close-dialog"
+          id="close-dialog"
+          aria-label="Fechar seleção de país"
+          type="button"
+        >
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" /></svg>
+        </button>
+      </div>
+      <div class="country-list" id="country-list"></div>
+    </dialog>
+  </body>
+</html>
